@@ -1,9 +1,9 @@
 import AppColors from '@app/utils/colors';
 import React from 'react';
-import {View, Pressable, StatusBar, StyleSheet, Text} from 'react-native';
+import {View, Pressable, StyleSheet, Text} from 'react-native';
 import {vs, ms} from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 type Props = {
   leftComponent?: JSX.Element;
   centerText?: string;
@@ -27,7 +27,7 @@ const Header: React.FC<Props> = (props: Props) => {
   } = props;
 
   const getHeaderHeight = (): number => {
-    return (StatusBar.currentHeight || 0) + vs(40);
+    return getStatusBarHeight() + vs(45);
   };
 
   const renderDefaultLeftComponent = (): JSX.Element => {
@@ -74,7 +74,7 @@ const Header: React.FC<Props> = (props: Props) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingTop: StatusBar.currentHeight,
+    paddingTop: getStatusBarHeight(),
     backgroundColor: AppColors.primary,
     flexDirection: 'row',
     alignItems: 'center',
