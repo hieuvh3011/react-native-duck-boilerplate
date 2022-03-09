@@ -15,7 +15,11 @@ import {StatusBar} from 'react-native';
 const App: React.FC = () => {
   return (
     <>
-      <StatusBar barStyle={'dark-content'} translucent={true} />
+      <StatusBar
+        barStyle={'dark-content'}
+        translucent={true}
+        backgroundColor={'transparent'}
+      />
       <MainNavigator />
     </>
   );
